@@ -61,7 +61,15 @@ RETURN
   collect(DISTINCT i.industry_group) AS industries,
   collect(DISTINCT l.location) AS locations,
   collect(DISTINCT o.primary_oems) AS oems,
-  collect(DISTINCT cat.category) AS categories
+  collect(DISTINCT cat.category) AS categories,
+  c.product_service_text AS product_service_text,
+  c.product_services AS product_services,
+  c.employment_total AS employment_total,
+  c.ev_battery_relevance AS ev_relevance,
+  c.primary_facility_types AS facility_types,
+  c.addresses AS addresses,
+  c.classification_methods AS classification_methods,
+  c.supplier_or_affiliation_types AS supplier_types
 """
 
 UPDATE_COMPANY_QUERY = """
@@ -98,18 +106,42 @@ def cypher_name(name: str) -> str:
     return f"`{name.replace('`', '``')}`"
 
 
-def values_text(values: list[Any]) -> str:
+def values_text(values: Any) -> str:
+    if values is None:
+        return ""
+    if isinstance(values, str):
+        return values.strip()
     return ", ".join(str(value) for value in values if value)
 
 
+def scalar_text(value: Any) -> str:
+    if value is None:
+        return ""
+    return str(value).strip()
+
+
 def build_company_text(row: neo4j.Record | dict[str, Any]) -> str:
+    # Include the full row-derived context so vector search can match on
+    # products, employment, EV relevance, facility types, etc. -- not just
+    # the company name and its graph neighbours.
     lines = [
         ("Company", row.get("company") or ""),
         ("Supply chain roles", values_text(row.get("roles", []))),
         ("Industries", values_text(row.get("industries", []))),
         ("Locations", values_text(row.get("locations", []))),
         ("OEMs supplied to", values_text(row.get("oems", []))),
-        ("Categories", values_text(row.get("categories", []))),
+        ("Categories (tier)", values_text(row.get("categories", []))),
+        (
+            "Products and services",
+            values_text(row.get("product_service_text"))
+            or values_text(row.get("product_services", [])),
+        ),
+        ("Total employment", scalar_text(row.get("employment_total"))),
+        ("EV / battery relevance", values_text(row.get("ev_relevance", []))),
+        ("Facility types", values_text(row.get("facility_types", []))),
+        ("Addresses", values_text(row.get("addresses", []))),
+        ("Classification method", values_text(row.get("classification_methods", []))),
+        ("Supplier / affiliation type", values_text(row.get("supplier_types", []))),
     ]
     return "\n".join(f"{label}: {value}" for label, value in lines if value).strip()
 

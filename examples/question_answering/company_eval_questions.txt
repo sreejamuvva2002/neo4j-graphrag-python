@@ -1,0 +1,42 @@
+Show all "Tier 1/2" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.
+Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?
+Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.
+List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.
+Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?
+What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?
+In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?
+Which county have the highest total Employment among Tier 1 suppliers only?
+Which county has the highest total employment across all companies, and what is the combined employment in that county?
+Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.
+Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.
+List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.
+Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.
+Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.
+Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.
+Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.
+Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?
+Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components and what tier is each assigned?
+Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?
+Which Georgia companies are classified under Battery Cell/Battery Pack roles or battery-related products and are Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.
+Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.
+Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.
+Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?
+Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?
+For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?
+Identify Georgia Tier 2/3 suppliers that are EV Relevant and classified as General Automotive.
+Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').
+Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.
+Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?
+Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?
+Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are ev relevant or indirectly ev relevant?
+Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' - these signal EV powertrain electronics growth.
+Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only "Indirectly Relevant" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?
+Which four Georgia companies have the largest employment in EV thermal management, and how many employees does each have?
+Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?
+Which Tier 1/2 Georgia companies listed under General Automotive?
+How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?
+Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?
+Which Georgia supplier appears to play an innovation-stage role through research, development, or prototyping activity?
+Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?
+For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?
+Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?

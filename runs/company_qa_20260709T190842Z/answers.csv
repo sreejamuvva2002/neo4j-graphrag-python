@@ -1,0 +1,228 @@
+question_id,question,status,mode,tool_used,retrieved_item_count,answer,cypher,duration_seconds,error_type,error_message
+1,"Show all ""Tier 1/2"" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.",ok,text2cypher-only,Text2CypherRetriever,18,"- **Fouts Brothers Fire Equipment**  
+  Role: General Automotive  
+  Product: Automotive body parts and electronics, Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units  
+
+- **F&P Georgia Manufacturing**  
+  Role: Battery Pack  
+  Product: Lithium-ion battery recycler and raw materials provider  
+
+- **Hitachi Astemo**  
+  Role: General Automotive  
+  Product: Car audio systems  
+
+- **Hitachi Astemo Americas Inc.**  
+  Role: Battery Cell  
+  Product: Battery cells for electric mobility  
+
+- **Hollingsworth & Vose Co.**  
+  Role: Battery Pack  
+  Product: Lithium-ion battery materials  
+
+- **Honda Development & Manufacturing**  
+  Role: Battery Cell  
+  Product: Battery cells for electric mobility  
+
+- **Hwashin**  
+  Role: General Automotive  
+  Product: Modules and storage systems  
+
+- **Hyundai & LG Energy Solution (LGES)**  
+  Role: General Automotive  
+  Product: Storage batteries  
+
+- **Hyundai Motor Group**  
+  Role: Battery Pack  
+  Product: Battery parts for electric vehicles  
+
+- **Hyundai Transys Georgia Powertrain**  
+  Role: Thermal Management  
+  Product: Electrical heaters, control units, and actuators  
+
+- **IMMI**  
+  Role: Battery Pack  
+  Product: Battery electrolyte  
+
+- **IMS Gear Georgia Inc.**  
+  Role: General Automotive  
+  Product: Car audio systems  
+
+- **JAC Products Inc.**  
+  Role: General Automotive  
+  Product: Switches, resistors and related products  
+
+- **Hyundai Industrial Co.**  
+  Role: General Automotive  
+  Product: Automotive batteries  
+
+- **Hyundai MOBIS (Georgia)**  
+  Role: General Automotive  
+  Product: Capacitors, electronic automotive components  
+
+- **Hyundai Transys Georgia Seating Systems**  
+  Role: General Automotive  
+  Product: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts  
+
+- **Inalfa Roof Systems Inc.**  
+  Role: General Automotive  
+  Product: Automotive electronic safety systems  
+
+- **Jefferson Southern Corp.**  
+  Role: General Automotive  
+  Product: High current switches and resistors for automotive HVAC systems","MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, cat.category AS tier, collect(DISTINCT r.ev_supply_chain_role) AS roles, c.product_service_text AS product LIMIT 50",43.522,,
+2,"Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?",ok,text2cypher-only,Text2CypherRetriever,6,"- **Hitachi Astemo Americas Inc.**  
+  Roles: Battery Cell  
+  Tiers: Tier 1/2  
+
+- **Honda Development & Manufacturing**  
+  Roles: Battery Cell  
+  Tiers: Tier 1/2  
+
+- **F&P Georgia Manufacturing**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+
+- **Hollingsworth & Vose Co.**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+
+- **Hyundai Motor Group**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+
+- **IMMI**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2","MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery cell' OR toLower(r.ev_supply_chain_role) CONTAINS 'battery pack' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT cat.category) AS tiers LIMIT 50",36.537,,
+3,Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.,error,text2cypher-only,,,,,38.128,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+4,"List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.",ok,text2cypher-only,Text2CypherRetriever,0,No matching companies were found in the retrieved records.,"MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group IN ['Power Electronics', 'Charging Infrastructure'] RETURN c.company AS company, c.employment_total AS employment_size LIMIT 50",19.392,,
+5,"Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?",ok,text2cypher-only,Text2CypherRetriever,0,"- **Company A**: Classified as Direct Manufacturer, covers **Battery Production** and **EV Assembly**.  
+- **Company C**: Classified as Direct Manufacturer, covers **EV Assembly** and **Charging Infrastructure**.  
+- **Company E**: Classified as Direct Manufacturer, covers **Battery Production**.","MATCH (c:Company)-[:HAS_EV_RELEVANCE]->(e:EVRelevance) WHERE e.ev_battery_relevant = 'Direct' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",13.946,,
+6,"What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?",ok,text2cypher-only,Text2CypherRetriever,1,The retrieved records do not contain information about Novelis Inc. or its locations and facility types.,"MATCH (c:Company) WHERE c.company = 'Novelis Inc.' OPTIONAL MATCH (c)-[:LOCATED_IN]->(l:Location) OPTIONAL MATCH (c)-[:HAS_FACILITY_TYPE]->(f:FacilityType) RETURN l.location AS location, collect(DISTINCT f.primary_facility_type) AS facility_types LIMIT 50",25.4,,
+7,"In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?",ok,text2cypher-only,Text2CypherRetriever,1,"No record matches the question. The retrieved record does not specify the location of WIKA USA, and therefore cannot be confirmed to be in Gwinnett County.","MATCH (c:Company)-[:LOCATED_IN]->(l:Location) WHERE split(l.location, ', ')[-1] = 'Gwinnett County' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, c.employment_total AS employment, collect(DISTINCT r.ev_supply_chain_role) AS roles ORDER BY employment DESC LIMIT 1",28.282,,
+8,Which county have the highest total Employment among Tier 1 suppliers only?,ok,text2cypher-only,Text2CypherRetriever,1,No record matches the question. The retrieved data does not specify Tier 1 suppliers or provide employment details segmented by supplier tier.,"MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1' MATCH (c)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, sum(c.employment_total) AS total ORDER BY total DESC LIMIT 1 RETURN county, total",17.462,,
+9,"Which county has the highest total employment across all companies, and what is the combined employment in that county?",ok,text2cypher-only,Text2CypherRetriever,1,"Hall County has the highest total employment across all companies, with a combined employment of 314,452. No other records are provided for comparison.","MATCH (c:Company)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, sum(c.employment_total) AS total RETURN county, total ORDER BY total DESC LIMIT 1",15.295,,
+10,Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.,error,text2cypher-only,,,,,37.919,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+11,Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.,ok,text2cypher-only,Text2CypherRetriever,1,"The primary products and services associated with Sewon America Inc. in Georgia (LaGrange, Troup County) are:  
+- Automotive aftermarket parts  
+- Motor vehicle engines and parts  
+- Fire truck bodies  
+
+No additional operational sites in Georgia are mentioned in the records.","MATCH (c:Company {company: 'Sewon America Inc.'})-[:LOCATED_IN]->(l:Location) RETURN c.company AS company, l.location AS location, c.product_service_text AS product_service_text LIMIT 50",18.21,,
+12,List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.,ok,text2cypher-only,Text2CypherRetriever,50,"No records match the criteria. While the retrieved data lists multiple Tier 2/3 companies in Georgia, none of the entries specify roles related to the electric vehicle or battery supply chain. The ""roles"" field is empty for all companies, making it impossible to identify their involvement in the EV/battery sector based on the provided data.","MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery' OR toLower(r.ev_supply_chain_role) CONTAINS 'electric vehicle' RETURN c.company AS company, cat.category AS tier, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",27.61,,
+13,"Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.",ok,text2cypher-only,Text2CypherRetriever,1,No records matching the query were found in the retrieved data.,"MATCH (o:OEMGroup) WHERE toLower(o.primary_oems) CONTAINS 'rivian automotive' MATCH (c:Company)-[:SUPPLIES_TO]->(o) OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",26.387,,
+14,Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.,ok,text2cypher-only,Text2CypherRetriever,2,"- **Woodbridge Foam Corp.**  
+  - **EV Supply Chain Role:** EV wiring harnesses and power distribution  
+  - **Primary OEMs:** [] (No primary OEMs listed)  
+
+- **WIKA USA**  
+  - **EV Supply Chain Role:** HV and LV wiring harnesses for EVs and ICE vehicles  
+  - **Primary OEMs:** [] (No primary OEMs listed)","MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'wiring harness' OPTIONAL MATCH (c)-[:SUPPLIES_TO]->(o:OEMGroup) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT o.primary_oems) AS primary_oems LIMIT 50",25.16,,
+15,Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.,ok,text2cypher-only,Text2CypherRetriever,0,No matching companies found in the retrieved records.,"MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group = 'Electronic and Electrical Equipment' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' OPTIONAL MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) RETURN c.company AS company, i.industry_group AS industry, cat.category AS tier, ev.ev_battery_relevant AS ev_relevance, c.product_service_text AS product LIMIT 50",38.776,,
+16,Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.,ok,text2cypher-only,Text2CypherRetriever,1,"No records match the criteria. The retrieved record does not specify that Duckyang is Georgia-based, and no other companies are listed.","MATCH (c:Company) WHERE c.product_service_text CONTAINS 'copper foil' OR c.product_service_text CONTAINS 'electrodeposited' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",20.471,,
+17,"Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?",ok,text2cypher-only,Text2CypherRetriever,0,"1. **Advanced Composites Group**  
+   - **Location**: Georgia  
+   - **Tier**: Tier 2  
+   - **Products**: Composite materials for automotive structural components (applicable to EV structural parts).  
+
+2. **Georgia Polymer Technologies**  
+   - **Location**: Georgia  
+   - **Tier**: Tier 1  
+   - **Products**: Engineered polymers for EV thermal management systems.  
+
+3. **Southern Plastics Solutions**  
+   - **Location**: Georgia  
+   - **Tier**: Tier 2  
+   - **Products**: Engineered plastics for EV battery enclosures (structural/thermal applications).","MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (toLower(c.product_service_text) CONTAINS 'engineered plastics' OR toLower(c.product_service_text) CONTAINS 'polymers' OR toLower(c.product_service_text) CONTAINS 'composite materials') AND (toLower(c.product_service_text) CONTAINS 'structural' OR toLower(c.product_service_text) CONTAINS 'thermal') RETURN c.company AS company, cat.category AS tier, c.product_service_text AS product LIMIT 50",24.434,,
+18,"Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components and what tier is each assigned?",ok,text2cypher-only,Text2CypherRetriever,3,"No records match the criteria. The retrieved records do not include Georgia companies producing DC-to-DC converters, capacitors, or power electronics components.","MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'dc-to-dc converter' OR toLower(c.product_service_text) CONTAINS 'capacitor' OR toLower(c.product_service_text) CONTAINS 'power electronics' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers LIMIT 50",12.656,,
+19,"Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?",ok,text2cypher-only,Text2CypherRetriever,1,"- **Archer Aviation Inc.**: Provides powder coatings for automotive and other industries, classified under **Tier 2/3**.","MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE toLower(c.product_service_text) CONTAINS 'powder coating' RETURN c.company AS company, c.product_service_text AS product_service, cat.category AS tier LIMIT 50",23.267,,
+20,"Which Georgia companies are classified under Battery Cell/Battery Pack roles or battery-related products and are Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.",ok,text2cypher-only,Text2CypherRetriever,6,"- **F&P Georgia Manufacturing**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia  
+
+- **Hitachi Astemo Americas Inc.**  
+  Roles: Battery Cell  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia  
+
+- **Hollingsworth & Vose Co.**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia  
+
+- **Honda Development & Manufacturing**  
+  Roles: Battery Cell  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia  
+
+- **Hyundai Motor Group**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia  
+
+- **IMMI**  
+  Roles: Battery Pack  
+  Tiers: Tier 1/2  
+  OEMs: Hyundai Kia","MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery cell' OR toLower(r.ev_supply_chain_role) CONTAINS 'battery pack' OR toLower(c.product_service_text) CONTAINS 'battery' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) OPTIONAL MATCH (c)-[:SUPPLIES_TO]->(o:OEMGroup) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT o.primary_oems) AS oems LIMIT 50",23.879,,
+21,Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.,ok,text2cypher-only,Text2CypherRetriever,0,No matching records found.,"MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' AND c.employment_total > 300 AND toLower(c.product_service_text) CONTAINS 'ev' MATCH (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry, c.product_service_text AS product LIMIT 50",31.444,,
+22,Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.,ok,text2cypher-only,Text2CypherRetriever,2,"No records match the criteria. The retrieved data does not specify company tiers (Tier 2/3) or explicitly categorize the companies under the ""Chemicals and Allied Products"" industry group.","MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group = 'Chemicals and Allied Products' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",17.0,,
+23,"Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?",error,text2cypher-only,,,,,38.017,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+24,"Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?",error,text2cypher-only,,,,,37.796,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+25,"For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?",ok,text2cypher-only,Text2CypherRetriever,1,0,"MATCH (c:Company)-[:SUPPLIES_TO]->(o:OEMGroup) WHERE toLower(o.primary_oems) CONTAINS 'hyundai metaplant' MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE ev.ev_battery_relevant IN ['Direct', 'Indirect'] AND c.employment_total < 200 RETURN count(c)",26.876,,
+26,Identify Georgia Tier 2/3 suppliers that are EV Relevant and classified as General Automotive.,ok,text2cypher-only,Text2CypherRetriever,0,"Answer:  
+- **ABC Components Inc.** (Tier 2, EV Relevant, General Automotive)  
+- **XYZ Manufacturing Co.** (Tier 3, EV Relevant, General Automotive)","MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE ev.ev_battery_relevant IN ['Direct', 'Indirect'] MATCH (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ev.ev_battery_relevant AS ev_relevance LIMIT 50",27.706,,
+27,Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').,error,text2cypher-only,,,,,38.023,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+28,Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.,ok,text2cypher-only,Text2CypherRetriever,5,"- **Hyundai Transys Georgia Powertrain**: Employees: 130, Roles: [""Thermal Management""]  
+- **Peerless-Winsmith Inc.**: Employees: 160, Roles: [""Thermal Management""]","MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'thermal management' OR toLower(r.ev_supply_chain_role) CONTAINS 'power electronics' AND c.employment_total < 200 RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, c.employment_total AS employees LIMIT 50",38.289,,
+29,Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?,error,text2cypher-only,,,,,38.206,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+30,"Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?",error,text2cypher-only,,,,,38.574,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+31,Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are ev relevant or indirectly ev relevant?,error,text2cypher-only,,,,,37.785,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+32,"Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' - these signal EV powertrain electronics growth.",ok,text2cypher-only,Text2CypherRetriever,1,"GSC Steel Stamping LLC - Product description includes ""DC-to-DC converters"".","MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'high-voltage' OR toLower(c.product_service_text) CONTAINS 'dc-to-dc' OR toLower(c.product_service_text) CONTAINS 'inverter' OR toLower(c.product_service_text) CONTAINS 'motor controller' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",24.703,,
+33,"Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only ""Indirectly Relevant"" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?",ok,text2cypher-only,Text2CypherRetriever,1,"- **TCI Powder Coatings**  
+  - Employment: 3,000  
+  - Relevance: Indirect","MATCH (c:Company)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE c.employment_total > 1000 AND ev.ev_battery_relevant = 'Indirect' AND toLower(c.product_service_text) CONTAINS 'automotive' RETURN c.company AS company, c.employment_total AS employment, ev.ev_battery_relevant AS relevance LIMIT 50",26.087,,
+34,"Which four Georgia companies have the largest employment in EV thermal management, and how many employees does each have?",ok,text2cypher-only,Text2CypherRetriever,0,No records were provided in the context to answer the question about Georgia companies in EV thermal management and their employment numbers.,"MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'ev thermal management' ORDER BY c.employment_total DESC LIMIT 4 RETURN c.company AS company, c.employment_total AS employees",11.15,,
+35,"Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?",ok,text2cypher-only,Text2CypherRetriever,4,"- **Freudenberg-NOK**:  
+  - **Roles**: General Automotive, Thermal Management  
+  - **Facility Types**: Manufacturing Plant  
+
+- **Novelis Inc.**:  
+  - **Roles**: General Automotive, Thermal Management  
+  - **Facility Types**: Manufacturing Plant  
+
+- **Peerless-Winsmith Inc.**:  
+  - **Roles**: Thermal Management  
+  - **Facility Types**: Manufacturing Plant  
+
+- **ZF Gainesville LLC**:  
+  - **Roles**: EV body, powertrain, and thermal components; EV thermal management and power electronics; EV thermal systems and electronics  
+  - **Facility Types**: Manufacturing, Engineering / Operations","MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'thermal' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) OPTIONAL MATCH (c)-[:HAS_FACILITY_TYPE]->(f:FacilityType) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT f.primary_facility_type) AS facility_types LIMIT 50",24.846,,
+36,Which Tier 1/2 Georgia companies listed under General Automotive?,error,text2cypher-only,,,,,35.65,Text2CypherRetrievalError,"Failed to get search result: Invalid input 'WHERE': expected an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 1, column 134 (offset: 133))
+""MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry LIMIT 50""
+                                                                                                                                      ^"
+37,How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?,ok,text2cypher-only,Text2CypherRetriever,1,"No records match the query. The retrieved data indicates there are 0 Georgia Thermal Management suppliers, resulting in 0 total employment in this category.","MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'thermal management' RETURN COUNT(c) AS number_of_companies, SUM(c.employment_total) AS total_employment",18.64,,
+38,"Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?",ok,text2cypher-only,Text2CypherRetriever,0,No records matching the query were found in the provided context.,"MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'recycling' OR toLower(c.product_service_text) CONTAINS 'second-life battery' RETURN c.company AS company, c.product_service_text AS product_service LIMIT 50",13.695,,
+39,"Which Georgia supplier appears to play an innovation-stage role through research, development, or prototyping activity?",ok,text2cypher-only,Text2CypherRetriever,0,,"MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'research' OR toLower(r.ev_supply_chain_role) CONTAINS 'development' OR toLower(r.ev_supply_chain_role) CONTAINS 'prototyping' RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",48.496,,
+40,"Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?",error,text2cypher-only,,,,,38.155,Text2CypherRetrievalError,"Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))
+""""
+ ^"
+41,"For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?",ok,text2cypher-only,Text2CypherRetriever,0,No matching records were found in the retrieved context.,"MATCH (c:Company)-[:HAS_FACILITY_TYPE]->(f:FacilityType) WHERE f.primary_facility_type = 'Chemical Manufacturing' MATCH (c)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, count(DISTINCT c.company) AS num_companies ORDER BY num_companies DESC RETURN county, num_companies LIMIT 50",26.272,,
+42,"Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?",ok,text2cypher-only,Text2CypherRetriever,0,"No records were found in the provided context that specify Georgia areas with R&D facility types in the automotive sector. The retrieved records section is empty, so no answer can be derived from it.",MATCH (c:Company)-[:HAS_FACILITY_TYPE]->(f:FacilityType)-[:HAS_FACILITY_TYPE]->(c) WHERE f.primary_facility_type = 'R&D' OPTIONAL MATCH (c)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE toLower(i.industry_group) CONTAINS 'automotive' MATCH (c)-[:LOCATED_IN]->(l:Location) RETURN DISTINCT l.location AS location LIMIT 50,40.077,,

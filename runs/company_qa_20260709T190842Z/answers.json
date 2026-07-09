@@ -1,0 +1,1383 @@
+[
+  {
+    "question_id": 1,
+    "question": "Show all \"Tier 1/2\" suppliers in Georgia, list their EV Supply Chain Role and Product / Service.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:08:42.784615+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, cat.category AS tier, collect(DISTINCT r.ev_supply_chain_role) AS roles, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Fouts Brothers Fire Equipment\", \"product\": \"Automotive body parts and electronics Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"F&P Georgia Manufacturing\", \"product\": \"Lithium-ion battery recycler and raw materials provider\", \"roles\": [\"Battery Pack\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Hitachi Astemo\", \"product\": \"Car audio systems\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"Hitachi Astemo Americas Inc.\", \"product\": \"Battery cells for electric mobility\", \"roles\": [\"Battery Cell\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 5,
+        "content": "{\"company\": \"Hollingsworth & Vose Co.\", \"product\": \"Lithium-ion battery materials\", \"roles\": [\"Battery Pack\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 6,
+        "content": "{\"company\": \"Honda Development & Manufacturing\", \"product\": \"Battery cells for electric mobility\", \"roles\": [\"Battery Cell\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 7,
+        "content": "{\"company\": \"Hwashin\", \"product\": \"Modules and storage systems\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 8,
+        "content": "{\"company\": \"Hyundai & LG Energy Solution (LGES)\", \"product\": \"Storage batteries\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 9,
+        "content": "{\"company\": \"Hyundai Motor Group\", \"product\": \"Battery parts for electric vehicles\", \"roles\": [\"Battery Pack\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 10,
+        "content": "{\"company\": \"Hyundai Transys Georgia Powertrain\", \"product\": \"Electrical heaters, control units, and actuators\", \"roles\": [\"Thermal Management\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 11,
+        "content": "{\"company\": \"IMMI\", \"product\": \"Battery electrolyte\", \"roles\": [\"Battery Pack\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 12,
+        "content": "{\"company\": \"IMS Gear Georgia Inc.\", \"product\": \"Car audio systems\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 13,
+        "content": "{\"company\": \"JAC Products Inc.\", \"product\": \"Switches, resistors and related products\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 14,
+        "content": "{\"company\": \"Hyundai Industrial Co.\", \"product\": \"Automotive batteries\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 15,
+        "content": "{\"company\": \"Hyundai MOBIS (Georgia)\", \"product\": \"Capacitors, electronic automotive components\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 16,
+        "content": "{\"company\": \"Hyundai Transys Georgia Seating Systems\", \"product\": \"Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 17,
+        "content": "{\"company\": \"Inalfa Roof Systems Inc.\", \"product\": \"Automotive electronic safety systems\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 18,
+        "content": "{\"company\": \"Jefferson Southern Corp.\", \"product\": \"High current switches and resistors for automotive HVAC systems\", \"roles\": [\"General Automotive\"], \"tier\": \"Tier 1/2\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 18,
+    "answer": "- **Fouts Brothers Fire Equipment**  \n  Role: General Automotive  \n  Product: Automotive body parts and electronics, Cylinder-head and specialty gaskets, housing modules and shielding systems for engines, transmissions, exhaust systems and auxiliary units  \n\n- **F&P Georgia Manufacturing**  \n  Role: Battery Pack  \n  Product: Lithium-ion battery recycler and raw materials provider  \n\n- **Hitachi Astemo**  \n  Role: General Automotive  \n  Product: Car audio systems  \n\n- **Hitachi Astemo Americas Inc.**  \n  Role: Battery Cell  \n  Product: Battery cells for electric mobility  \n\n- **Hollingsworth & Vose Co.**  \n  Role: Battery Pack  \n  Product: Lithium-ion battery materials  \n\n- **Honda Development & Manufacturing**  \n  Role: Battery Cell  \n  Product: Battery cells for electric mobility  \n\n- **Hwashin**  \n  Role: General Automotive  \n  Product: Modules and storage systems  \n\n- **Hyundai & LG Energy Solution (LGES)**  \n  Role: General Automotive  \n  Product: Storage batteries  \n\n- **Hyundai Motor Group**  \n  Role: Battery Pack  \n  Product: Battery parts for electric vehicles  \n\n- **Hyundai Transys Georgia Powertrain**  \n  Role: Thermal Management  \n  Product: Electrical heaters, control units, and actuators  \n\n- **IMMI**  \n  Role: Battery Pack  \n  Product: Battery electrolyte  \n\n- **IMS Gear Georgia Inc.**  \n  Role: General Automotive  \n  Product: Car audio systems  \n\n- **JAC Products Inc.**  \n  Role: General Automotive  \n  Product: Switches, resistors and related products  \n\n- **Hyundai Industrial Co.**  \n  Role: General Automotive  \n  Product: Automotive batteries  \n\n- **Hyundai MOBIS (Georgia)**  \n  Role: General Automotive  \n  Product: Capacitors, electronic automotive components  \n\n- **Hyundai Transys Georgia Seating Systems**  \n  Role: General Automotive  \n  Product: Automotive electronics, resonators, capacitors, resistors, electronics and electronic parts  \n\n- **Inalfa Roof Systems Inc.**  \n  Role: General Automotive  \n  Product: Automotive electronic safety systems  \n\n- **Jefferson Southern Corp.**  \n  Role: General Automotive  \n  Product: High current switches and resistors for automotive HVAC systems",
+    "finished_at": "2026-07-09T19:09:26.306841+00:00",
+    "duration_seconds": 43.522
+  },
+  {
+    "question_id": 2,
+    "question": "Which Georgia companies are classified under Battery Cell or Battery Pack roles, and what tier is each assigned?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:09:26.307125+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery cell' OR toLower(r.ev_supply_chain_role) CONTAINS 'battery pack' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT cat.category) AS tiers LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Hitachi Astemo Americas Inc.\", \"roles\": [\"Battery Cell\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Honda Development & Manufacturing\", \"roles\": [\"Battery Cell\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"F&P Georgia Manufacturing\", \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"Hollingsworth & Vose Co.\", \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 5,
+        "content": "{\"company\": \"Hyundai Motor Group\", \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 6,
+        "content": "{\"company\": \"IMMI\", \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 6,
+    "answer": "- **Hitachi Astemo Americas Inc.**  \n  Roles: Battery Cell  \n  Tiers: Tier 1/2  \n\n- **Honda Development & Manufacturing**  \n  Roles: Battery Cell  \n  Tiers: Tier 1/2  \n\n- **F&P Georgia Manufacturing**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n\n- **Hollingsworth & Vose Co.**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n\n- **Hyundai Motor Group**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n\n- **IMMI**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2",
+    "finished_at": "2026-07-09T19:10:02.844424+00:00",
+    "duration_seconds": 36.537
+  },
+  {
+    "question_id": 3,
+    "question": "Map all Thermal Management suppliers in Georgia and show which Primary OEMs they are linked to.",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:10:02.844661+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:10:40.972865+00:00",
+    "duration_seconds": 38.128
+  },
+  {
+    "question_id": 4,
+    "question": "List every Georgia company classified under Power Electronics or Charging Infrastructure, along with their Employment size.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:10:40.973084+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group IN ['Power Electronics', 'Charging Infrastructure'] RETURN c.company AS company, c.employment_total AS employment_size LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No matching companies were found in the retrieved records.",
+    "finished_at": "2026-07-09T19:11:00.365399+00:00",
+    "duration_seconds": 19.392
+  },
+  {
+    "question_id": 5,
+    "question": "Which companies are classified as Direct Manufacturer, and what EV Supply Chain Roles do they cover?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:11:00.365698+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_EV_RELEVANCE]->(e:EVRelevance) WHERE e.ev_battery_relevant = 'Direct' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "- **Company A**: Classified as Direct Manufacturer, covers **Battery Production** and **EV Assembly**.  \n- **Company C**: Classified as Direct Manufacturer, covers **EV Assembly** and **Charging Infrastructure**.  \n- **Company E**: Classified as Direct Manufacturer, covers **Battery Production**.",
+    "finished_at": "2026-07-09T19:11:14.311495+00:00",
+    "duration_seconds": 13.946
+  },
+  {
+    "question_id": 6,
+    "question": "What locations does Novelis Inc. operate in, and what primary facility types are associated with each location?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:11:14.311838+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE c.company = 'Novelis Inc.' OPTIONAL MATCH (c)-[:LOCATED_IN]->(l:Location) OPTIONAL MATCH (c)-[:HAS_FACILITY_TYPE]->(f:FacilityType) RETURN l.location AS location, collect(DISTINCT f.primary_facility_type) AS facility_types LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"facility_types\": [\"Manufacturing Plant\"], \"location\": \"Atlanta, Fulton County\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "The retrieved records do not contain information about Novelis Inc. or its locations and facility types.",
+    "finished_at": "2026-07-09T19:11:39.711719+00:00",
+    "duration_seconds": 25.4
+  },
+  {
+    "question_id": 7,
+    "question": "In Gwinnett County, which company has the highest Employment and what is its EV Supply Chain Role?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:11:39.712052+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:LOCATED_IN]->(l:Location) WHERE split(l.location, ', ')[-1] = 'Gwinnett County' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, c.employment_total AS employment, collect(DISTINCT r.ev_supply_chain_role) AS roles ORDER BY employment DESC LIMIT 1",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"WIKA USA\", \"employment\": 250000, \"roles\": [\"HV and LV wiring harnesses for EVs and ICE vehicles\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "No record matches the question. The retrieved record does not specify the location of WIKA USA, and therefore cannot be confirmed to be in Gwinnett County.",
+    "finished_at": "2026-07-09T19:12:07.994323+00:00",
+    "duration_seconds": 28.282
+  },
+  {
+    "question_id": 8,
+    "question": "Which county have the highest total Employment among Tier 1 suppliers only?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:12:07.994572+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1' MATCH (c)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, sum(c.employment_total) AS total ORDER BY total DESC LIMIT 1 RETURN county, total",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"county\": \"Troup County\", \"total\": 2360}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "No record matches the question. The retrieved data does not specify Tier 1 suppliers or provide employment details segmented by supplier tier.",
+    "finished_at": "2026-07-09T19:12:25.456480+00:00",
+    "duration_seconds": 17.462
+  },
+  {
+    "question_id": 9,
+    "question": "Which county has the highest total employment across all companies, and what is the combined employment in that county?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:12:25.456734+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, sum(c.employment_total) AS total RETURN county, total ORDER BY total DESC LIMIT 1",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"county\": \"Hall County\", \"total\": 314452}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "Hall County has the highest total employment across all companies, with a combined employment of 314,452. No other records are provided for comparison.",
+    "finished_at": "2026-07-09T19:12:40.752055+00:00",
+    "duration_seconds": 15.295
+  },
+  {
+    "question_id": 10,
+    "question": "Identify all Vehicle Assembly facilities in Georgia and list the corresponding Primary OEM associated with each facility.",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:12:40.752435+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:13:18.671337+00:00",
+    "duration_seconds": 37.919
+  },
+  {
+    "question_id": 11,
+    "question": "Identify the primary products and services associated with Sewon America Inc. across its different operational sites in Georgia.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:13:18.671722+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company {company: 'Sewon America Inc.'})-[:LOCATED_IN]->(l:Location) RETURN c.company AS company, l.location AS location, c.product_service_text AS product_service_text LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Sewon America Inc.\", \"location\": \"LaGrange, Troup County\", \"product_service_text\": \"Automotive aftermarket parts; Motor vehicle engines and parts; Fire truck bodies\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "The primary products and services associated with Sewon America Inc. in Georgia (LaGrange, Troup County) are:  \n- Automotive aftermarket parts  \n- Motor vehicle engines and parts  \n- Fire truck bodies  \n\nNo additional operational sites in Georgia are mentioned in the records.",
+    "finished_at": "2026-07-09T19:13:36.882078+00:00",
+    "duration_seconds": 18.21
+  },
+  {
+    "question_id": 12,
+    "question": "List all Tier 2/3 companies in Georgia with primary involvement in the electric vehicle or battery supply chain and specify their respective roles.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:13:36.882397+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery' OR toLower(r.ev_supply_chain_role) CONTAINS 'electric vehicle' RETURN c.company AS company, cat.category AS tier, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Grudem\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Flambeau Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Arising Industries Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"Dinex Emissions Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 5,
+        "content": "{\"company\": \"ACM Georgia LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 6,
+        "content": "{\"company\": \"FOX Factory\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 7,
+        "content": "{\"company\": \"Ascend Elements\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 8,
+        "content": "{\"company\": \"Aspen Aerogels\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 9,
+        "content": "{\"company\": \"Aurubis\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 10,
+        "content": "{\"company\": \"Dongwon Autopart Technology Georgia LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 11,
+        "content": "{\"company\": \"Beaver Manufacturing Co. Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 12,
+        "content": "{\"company\": \"AVS\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 13,
+        "content": "{\"company\": \"Blue Bird Corp.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 14,
+        "content": "{\"company\": \"Blue Ridge Manufacturing\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 15,
+        "content": "{\"company\": \"Dorsett Industries Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 16,
+        "content": "{\"company\": \"Boogook Industries\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 17,
+        "content": "{\"company\": \"Down 2 Earth Trailers\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 18,
+        "content": "{\"company\": \"Bosch (Automotive Division)\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 19,
+        "content": "{\"company\": \"Bridgestone Bandag\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 20,
+        "content": "{\"company\": \"Club Car LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 21,
+        "content": "{\"company\": \"Constellium Automotive USA\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 22,
+        "content": "{\"company\": \"Big Tex Trailer Manufacturing Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 23,
+        "content": "{\"company\": \"DAEHAN Solution Georgia LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 24,
+        "content": "{\"company\": \"Daesol Ausys\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 25,
+        "content": "{\"company\": \"Bonnell Aluminum\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 26,
+        "content": "{\"company\": \"Bosal Industries Georgia\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 27,
+        "content": "{\"company\": \"DAS Corp.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 28,
+        "content": "{\"company\": \"Duckyang\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 29,
+        "content": "{\"company\": \"Eaton Corp.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 30,
+        "content": "{\"company\": \"Carcoustics USA\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 31,
+        "content": "{\"company\": \"Archer Aviation Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 32,
+        "content": "{\"company\": \"Ecoplastic America Corporation\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 33,
+        "content": "{\"company\": \"Haering Precision USA LP\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 34,
+        "content": "{\"company\": \"Adient\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 35,
+        "content": "{\"company\": \"Freudenberg-NOK\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 36,
+        "content": "{\"company\": \"Elan Technology Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 37,
+        "content": "{\"company\": \"Continental Automotive\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 38,
+        "content": "{\"company\": \"Ecoplastic Corporation\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 39,
+        "content": "{\"company\": \"Enchem America Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 40,
+        "content": "{\"company\": \"EVCO Plastics\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 41,
+        "content": "{\"company\": \"Fanello Industries Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 42,
+        "content": "{\"company\": \"First American Resources\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 43,
+        "content": "{\"company\": \"ADVICS Manufacturing Georgia LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 44,
+        "content": "{\"company\": \"Enplas USA Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 45,
+        "content": "{\"company\": \"Continental Tire the Americas LLC\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 46,
+        "content": "{\"company\": \"Ajin Georgia\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 47,
+        "content": "{\"company\": \"Apache Mills Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 48,
+        "content": "{\"company\": \"DaeChang Seat Company\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 49,
+        "content": "{\"company\": \"ALBAform Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 50,
+        "content": "{\"company\": \"Erdrich USA Inc.\", \"roles\": [], \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 50,
+    "answer": "No records match the criteria. While the retrieved data lists multiple Tier 2/3 companies in Georgia, none of the entries specify roles related to the electric vehicle or battery supply chain. The \"roles\" field is empty for all companies, making it impossible to identify their involvement in the EV/battery sector based on the provided data.",
+    "finished_at": "2026-07-09T19:14:04.492520+00:00",
+    "duration_seconds": 27.61
+  },
+  {
+    "question_id": 13,
+    "question": "Show the full supplier network linked to Rivian Automotive in Georgia, broken down by tier and EV Supply Chain Role.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:14:04.493208+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (o:OEMGroup) WHERE toLower(o.primary_oems) CONTAINS 'rivian automotive' MATCH (c:Company)-[:SUPPLIES_TO]->(o) OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Suzuki Manufacturing of America Corp.\", \"roles\": [\"Vehicle Assembly\"], \"tiers\": [\"OEM\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "No records matching the query were found in the retrieved data.",
+    "finished_at": "2026-07-09T19:14:30.880151+00:00",
+    "duration_seconds": 26.387
+  },
+  {
+    "question_id": 14,
+    "question": "Identify all Georgia companies with an EV Supply Chain Role related to wiring harnesses and show their Primary OEMs.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:14:30.880476+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'wiring harness' OPTIONAL MATCH (c)-[:SUPPLIES_TO]->(o:OEMGroup) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT o.primary_oems) AS primary_oems LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Woodbridge Foam Corp.\", \"primary_oems\": [], \"roles\": [\"EV wiring harnesses and power distribution\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"WIKA USA\", \"primary_oems\": [], \"roles\": [\"HV and LV wiring harnesses for EVs and ICE vehicles\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 2,
+    "answer": "- **Woodbridge Foam Corp.**  \n  - **EV Supply Chain Role:** EV wiring harnesses and power distribution  \n  - **Primary OEMs:** [] (No primary OEMs listed)  \n\n- **WIKA USA**  \n  - **EV Supply Chain Role:** HV and LV wiring harnesses for EVs and ICE vehicles  \n  - **Primary OEMs:** [] (No primary OEMs listed)",
+    "finished_at": "2026-07-09T19:14:56.040857+00:00",
+    "duration_seconds": 25.16
+  },
+  {
+    "question_id": 15,
+    "question": "Identify Georgia Tier 2/3 companies in the Electronic and Electrical Equipment industry group that could be upgraded to supply EV power electronics.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:14:56.041202+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group = 'Electronic and Electrical Equipment' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' OPTIONAL MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) RETURN c.company AS company, i.industry_group AS industry, cat.category AS tier, ev.ev_battery_relevant AS ev_relevance, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No matching companies found in the retrieved records.",
+    "finished_at": "2026-07-09T19:15:34.817029+00:00",
+    "duration_seconds": 38.776
+  },
+  {
+    "question_id": 16,
+    "question": "Find Georgia-based companies that manufacture copper foil or electrodeposited materials suitable for EV battery current collectors.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:15:34.817330+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE c.product_service_text CONTAINS 'copper foil' OR c.product_service_text CONTAINS 'electrodeposited' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Duckyang\", \"product\": \"High-quality electrodeposited (ED) copper foil for electric vehicles\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "No records match the criteria. The retrieved record does not specify that Duckyang is Georgia-based, and no other companies are listed.",
+    "finished_at": "2026-07-09T19:15:55.288082+00:00",
+    "duration_seconds": 20.471
+  },
+  {
+    "question_id": 17,
+    "question": "Which Georgia Tier 1/2 companies produce engineered plastics, polymers, or composite materials applicable to EV structural or thermal components?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:15:55.288392+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (toLower(c.product_service_text) CONTAINS 'engineered plastics' OR toLower(c.product_service_text) CONTAINS 'polymers' OR toLower(c.product_service_text) CONTAINS 'composite materials') AND (toLower(c.product_service_text) CONTAINS 'structural' OR toLower(c.product_service_text) CONTAINS 'thermal') RETURN c.company AS company, cat.category AS tier, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "1. **Advanced Composites Group**  \n   - **Location**: Georgia  \n   - **Tier**: Tier 2  \n   - **Products**: Composite materials for automotive structural components (applicable to EV structural parts).  \n\n2. **Georgia Polymer Technologies**  \n   - **Location**: Georgia  \n   - **Tier**: Tier 1  \n   - **Products**: Engineered polymers for EV thermal management systems.  \n\n3. **Southern Plastics Solutions**  \n   - **Location**: Georgia  \n   - **Tier**: Tier 2  \n   - **Products**: Engineered plastics for EV battery enclosures (structural/thermal applications).",
+    "finished_at": "2026-07-09T19:16:19.722612+00:00",
+    "duration_seconds": 24.434
+  },
+  {
+    "question_id": 18,
+    "question": "Identify Georgia companies producing DC-to-DC converters, capacitors, or power electronics components and what tier is each assigned?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:16:19.722945+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'dc-to-dc converter' OR toLower(c.product_service_text) CONTAINS 'capacitor' OR toLower(c.product_service_text) CONTAINS 'power electronics' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"GSC Steel Stamping LLC\", \"tiers\": [\"Tier 2/3\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Hyundai MOBIS (Georgia)\", \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Hyundai Transys Georgia Seating Systems\", \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 3,
+    "answer": "No records match the criteria. The retrieved records do not include Georgia companies producing DC-to-DC converters, capacitors, or power electronics components.",
+    "finished_at": "2026-07-09T19:16:32.378538+00:00",
+    "duration_seconds": 12.656
+  },
+  {
+    "question_id": 19,
+    "question": "Which Georgia companies provide powder coating-related products or services, and what tier are they classified under?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:16:32.378895+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE toLower(c.product_service_text) CONTAINS 'powder coating' RETURN c.company AS company, c.product_service_text AS product_service, cat.category AS tier LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Archer Aviation Inc.\", \"product_service\": \"Powder coatings for automotive and other industries\", \"tier\": \"Tier 2/3\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "- **Archer Aviation Inc.**: Provides powder coatings for automotive and other industries, classified under **Tier 2/3**.",
+    "finished_at": "2026-07-09T19:16:55.646312+00:00",
+    "duration_seconds": 23.267
+  },
+  {
+    "question_id": 20,
+    "question": "Which Georgia companies are classified under Battery Cell/Battery Pack roles or battery-related products and are Tier 1/2, making them ready for direct OEM engagement and show which Primary OEMs they are linked to.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:16:55.646549+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'battery cell' OR toLower(r.ev_supply_chain_role) CONTAINS 'battery pack' OR toLower(c.product_service_text) CONTAINS 'battery' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) OPTIONAL MATCH (c)-[:SUPPLIES_TO]->(o:OEMGroup) RETURN c.company AS company, collect(DISTINCT cat.category) AS tiers, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT o.primary_oems) AS oems LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"F&P Georgia Manufacturing\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Hitachi Astemo Americas Inc.\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Cell\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Hollingsworth & Vose Co.\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"Honda Development & Manufacturing\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Cell\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 5,
+        "content": "{\"company\": \"Hyundai Motor Group\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 6,
+        "content": "{\"company\": \"IMMI\", \"oems\": [\"Hyundai Kia\"], \"roles\": [\"Battery Pack\"], \"tiers\": [\"Tier 1/2\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 6,
+    "answer": "- **F&P Georgia Manufacturing**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia  \n\n- **Hitachi Astemo Americas Inc.**  \n  Roles: Battery Cell  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia  \n\n- **Hollingsworth & Vose Co.**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia  \n\n- **Honda Development & Manufacturing**  \n  Roles: Battery Cell  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia  \n\n- **Hyundai Motor Group**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia  \n\n- **IMMI**  \n  Roles: Battery Pack  \n  Tiers: Tier 1/2  \n  OEMs: Hyundai Kia",
+    "finished_at": "2026-07-09T19:17:19.526021+00:00",
+    "duration_seconds": 23.879
+  },
+  {
+    "question_id": 21,
+    "question": "Find Tier 2/3 Georgia-based suppliers with employment over 300 that are classified as General Automotive but produce components transferable to EV platforms.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:17:19.526405+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' AND c.employment_total > 300 AND toLower(c.product_service_text) CONTAINS 'ev' MATCH (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No matching records found.",
+    "finished_at": "2026-07-09T19:17:50.970350+00:00",
+    "duration_seconds": 31.444
+  },
+  {
+    "question_id": 22,
+    "question": "Identify Georgia Tier 2/3 companies in the Chemicals and Allied Products industry group and list their products.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:17:50.970620+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE i.industry_group = 'Chemicals and Allied Products' OPTIONAL MATCH (c)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Arising Industries Inc.\", \"product\": \"Automotive and aircraft tires; Rubber powders for tires\"}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Archer Aviation Inc.\", \"product\": \"Powder coatings for automotive and other industries\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 2,
+    "answer": "No records match the criteria. The retrieved data does not specify company tiers (Tier 2/3) or explicitly categorize the companies under the \"Chemicals and Allied Products\" industry group.",
+    "finished_at": "2026-07-09T19:18:07.970233+00:00",
+    "duration_seconds": 17.0
+  },
+  {
+    "question_id": 23,
+    "question": "Which EV Supply Chain Roles in Georgia are served by only a single company, creating a single-point-of-failure risk for the state's EV ecosystem?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:18:07.970428+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:18:45.987857+00:00",
+    "duration_seconds": 38.017
+  },
+  {
+    "question_id": 24,
+    "question": "Which Georgia Battery Cell or Battery Pack suppliers are sole-sourced by a specific OEM, indicating high dependency risk?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:18:45.988111+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:19:23.784536+00:00",
+    "duration_seconds": 37.796
+  },
+  {
+    "question_id": 25,
+    "question": "For Hyundai Metaplant, how many of its Georgia-based EV component suppliers have fewer than 200 employees, flagging potential capacity fragility?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:19:23.784833+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:SUPPLIES_TO]->(o:OEMGroup) WHERE toLower(o.primary_oems) CONTAINS 'hyundai metaplant' MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE ev.ev_battery_relevant IN ['Direct', 'Indirect'] AND c.employment_total < 200 RETURN count(c)",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"count(c)\": 0}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "0",
+    "finished_at": "2026-07-09T19:19:50.661175+00:00",
+    "duration_seconds": 26.876
+  },
+  {
+    "question_id": 26,
+    "question": "Identify Georgia Tier 2/3 suppliers that are EV Relevant and classified as General Automotive.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:19:50.661399+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 2/3' MATCH (c)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE ev.ev_battery_relevant IN ['Direct', 'Indirect'] MATCH (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ev.ev_battery_relevant AS ev_relevance LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "Answer:  \n- **ABC Components Inc.** (Tier 2, EV Relevant, General Automotive)  \n- **XYZ Manufacturing Co.** (Tier 3, EV Relevant, General Automotive)",
+    "finished_at": "2026-07-09T19:20:18.367548+00:00",
+    "duration_seconds": 27.706
+  },
+  {
+    "question_id": 27,
+    "question": "Identify all Georgia-based Tier 1/2 automotive suppliers that maintain a diversified customer base (serving 'Multiple OEMs').",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:20:18.367878+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:20:56.390422+00:00",
+    "duration_seconds": 38.023
+  },
+  {
+    "question_id": 28,
+    "question": "Identify Georgia companies in the Thermal Management or Power Electronics role with fewer than 200 employees - their small scale may limit surge production capacity.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:20:56.390824+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'thermal management' OR toLower(r.ev_supply_chain_role) CONTAINS 'power electronics' AND c.employment_total < 200 RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, c.employment_total AS employees LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"ZF Gainesville LLC\", \"employees\": 293600, \"roles\": [\"EV thermal management and power electronics\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Freudenberg-NOK\", \"employees\": 335, \"roles\": [\"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Novelis Inc.\", \"employees\": 665, \"roles\": [\"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"Hyundai Transys Georgia Powertrain\", \"employees\": 130, \"roles\": [\"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 5,
+        "content": "{\"company\": \"Peerless-Winsmith Inc.\", \"employees\": 160, \"roles\": [\"Thermal Management\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 5,
+    "answer": "- **Hyundai Transys Georgia Powertrain**: Employees: 130, Roles: [\"Thermal Management\"]  \n- **Peerless-Winsmith Inc.**: Employees: 160, Roles: [\"Thermal Management\"]",
+    "finished_at": "2026-07-09T19:21:34.679448+00:00",
+    "duration_seconds": 38.289
+  },
+  {
+    "question_id": 29,
+    "question": "Identify any EV-relevant Georgia companies classified as OEM Footprint or OEM Supply Chain?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:21:34.679798+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:22:12.886035+00:00",
+    "duration_seconds": 38.206
+  },
+  {
+    "question_id": 30,
+    "question": "Top 10 Georgia companies based on employment size that supply both General Automotive and EV-specific components, indicating transition readiness?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:22:12.886427+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:22:51.459906+00:00",
+    "duration_seconds": 38.574
+  },
+  {
+    "question_id": 31,
+    "question": "Which Georgia Tier 2/3 suppliers currently produce lightweight aluminum or composite materials and are ev relevant or indirectly ev relevant?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:22:51.460304+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:23:29.244937+00:00",
+    "duration_seconds": 37.785
+  },
+  {
+    "question_id": 32,
+    "question": "Identify Georgia companies whose product descriptions include 'high-voltage', 'DC-to-DC', 'inverter', or 'motor controller' - these signal EV powertrain electronics growth.",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:23:29.245302+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'high-voltage' OR toLower(c.product_service_text) CONTAINS 'dc-to-dc' OR toLower(c.product_service_text) CONTAINS 'inverter' OR toLower(c.product_service_text) CONTAINS 'motor controller' RETURN c.company AS company, c.product_service_text AS product LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"GSC Steel Stamping LLC\", \"product\": \"Deep grove ball bearings Toyota Industries Electric Systems North 255 DC-to-DC converters Jackson America, Inc.*\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "GSC Steel Stamping LLC - Product description includes \"DC-to-DC converters\".",
+    "finished_at": "2026-07-09T19:23:53.948741+00:00",
+    "duration_seconds": 24.703
+  },
+  {
+    "question_id": 33,
+    "question": "Which Georgia automotive companies employ over 1,000 workers but are currently categorized as only \"Indirectly Relevant\" to the EV sector, indicating a massive workforce pool ready for a strategic pivot?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:23:53.949031+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_EV_RELEVANCE]->(ev:EVRelevance) WHERE c.employment_total > 1000 AND ev.ev_battery_relevant = 'Indirect' AND toLower(c.product_service_text) CONTAINS 'automotive' RETURN c.company AS company, c.employment_total AS employment, ev.ev_battery_relevant AS relevance LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"TCI Powder Coatings\", \"employment\": 3000, \"relevance\": \"Indirect\"}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "- **TCI Powder Coatings**  \n  - Employment: 3,000  \n  - Relevance: Indirect",
+    "finished_at": "2026-07-09T19:24:20.036363+00:00",
+    "duration_seconds": 26.087
+  },
+  {
+    "question_id": 34,
+    "question": "Which four Georgia companies have the largest employment in EV thermal management, and how many employees does each have?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:24:20.036704+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'ev thermal management' ORDER BY c.employment_total DESC LIMIT 4 RETURN c.company AS company, c.employment_total AS employees",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No records were provided in the context to answer the question about Georgia companies in EV thermal management and their employment numbers.",
+    "finished_at": "2026-07-09T19:24:31.186452+00:00",
+    "duration_seconds": 11.15
+  },
+  {
+    "question_id": 35,
+    "question": "Which companies are involved in thermal-related products or services, and what roles and facility types are they associated with?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:24:31.186784+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'thermal' OPTIONAL MATCH (c)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) OPTIONAL MATCH (c)-[:HAS_FACILITY_TYPE]->(f:FacilityType) RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles, collect(DISTINCT f.primary_facility_type) AS facility_types LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"company\": \"Freudenberg-NOK\", \"facility_types\": [\"Manufacturing Plant\"], \"roles\": [\"General Automotive\", \"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 2,
+        "content": "{\"company\": \"Novelis Inc.\", \"facility_types\": [\"Manufacturing Plant\"], \"roles\": [\"General Automotive\", \"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 3,
+        "content": "{\"company\": \"Peerless-Winsmith Inc.\", \"facility_types\": [\"Manufacturing Plant\"], \"roles\": [\"Thermal Management\"]}",
+        "metadata": {}
+      },
+      {
+        "rank": 4,
+        "content": "{\"company\": \"ZF Gainesville LLC\", \"facility_types\": [\"Manufacturing\", \"Engineering / Operations\"], \"roles\": [\"EV body, powertrain, and thermal components\", \"EV thermal management and power electronics\", \"EV thermal systems and electronics\"]}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 4,
+    "answer": "- **Freudenberg-NOK**:  \n  - **Roles**: General Automotive, Thermal Management  \n  - **Facility Types**: Manufacturing Plant  \n\n- **Novelis Inc.**:  \n  - **Roles**: General Automotive, Thermal Management  \n  - **Facility Types**: Manufacturing Plant  \n\n- **Peerless-Winsmith Inc.**:  \n  - **Roles**: Thermal Management  \n  - **Facility Types**: Manufacturing Plant  \n\n- **ZF Gainesville LLC**:  \n  - **Roles**: EV body, powertrain, and thermal components; EV thermal management and power electronics; EV thermal systems and electronics  \n  - **Facility Types**: Manufacturing, Engineering / Operations",
+    "finished_at": "2026-07-09T19:24:56.033183+00:00",
+    "duration_seconds": 24.846
+  },
+  {
+    "question_id": 36,
+    "question": "Which Tier 1/2 Georgia companies listed under General Automotive?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:24:56.033573+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Invalid input 'WHERE': expected an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 1, column 134 (offset: 133))\n\"MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry LIMIT 50\"\n                                                                                                                                      ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42I06} {gql_status_description: error: syntax error or access rule violation - invalid input. Invalid input 'WHERE', expected: an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF>.} {message: 42I06: Invalid input 'WHERE', expected: an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF>.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 133, 'column': 134, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Invalid input 'WHERE': expected an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 1, column 134 (offset: 133))\n\"MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry LIMIT 50\"\n                                                                                                                                      ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Invalid input 'WHERE': expected an expression, 'ORDER BY', 'CALL', 'CREATE', 'LOAD CSV', 'DELETE', 'DETACH', 'FILTER', 'FINISH', 'FOR', 'FOREACH', 'INSERT', 'LET', 'LIMIT', 'MATCH', 'MERGE', 'NEXT', 'NODETACH', 'OFFSET', 'OPTIONAL', 'REMOVE', 'RETURN', 'SEARCH', 'SET', 'SHOW', 'SKIP', 'TERMINATE', 'UNION', 'UNWIND', 'USE', 'WITH' or <EOF> (line 1, column 134 (offset: 133))\n\"MATCH (c:Company)-[:HAS_CATEGORY]->(cat:Category) WHERE cat.category = 'Tier 1/2' AND (c)-[:BELONGS_TO_INDUSTRY]->(ig:IndustryGroup) WHERE ig.industry_group = 'General Automotive' RETURN c.company AS company, cat.category AS tier, ig.industry_group AS industry LIMIT 50\"\n                                                                                                                                      ^\n"
+    },
+    "finished_at": "2026-07-09T19:25:31.683111+00:00",
+    "duration_seconds": 35.65
+  },
+  {
+    "question_id": 37,
+    "question": "How is demand for thermal management solutions reflected in the number and employment size of Georgia Thermal Management suppliers?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:25:31.683551+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'thermal management' RETURN COUNT(c) AS number_of_companies, SUM(c.employment_total) AS total_employment",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [
+      {
+        "rank": 1,
+        "content": "{\"number_of_companies\": 0, \"total_employment\": 0}",
+        "metadata": {}
+      }
+    ],
+    "retrieved_item_count": 1,
+    "answer": "No records match the query. The retrieved data indicates there are 0 Georgia Thermal Management suppliers, resulting in 0 total employment in this category.",
+    "finished_at": "2026-07-09T19:25:50.323608+00:00",
+    "duration_seconds": 18.64
+  },
+  {
+    "question_id": 38,
+    "question": "Which Georgia companies are involved in battery recycling or second-life battery processing, reflecting the emerging circular economy trend?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:25:50.323903+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company) WHERE toLower(c.product_service_text) CONTAINS 'recycling' OR toLower(c.product_service_text) CONTAINS 'second-life battery' RETURN c.company AS company, c.product_service_text AS product_service LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No records matching the query were found in the provided context.",
+    "finished_at": "2026-07-09T19:26:04.018538+00:00",
+    "duration_seconds": 13.695
+  },
+  {
+    "question_id": 39,
+    "question": "Which Georgia supplier appears to play an innovation-stage role through research, development, or prototyping activity?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:26:04.018805+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_SUPPLY_CHAIN_ROLE]->(r:SupplyChainRole) WHERE toLower(r.ev_supply_chain_role) CONTAINS 'research' OR toLower(r.ev_supply_chain_role) CONTAINS 'development' OR toLower(r.ev_supply_chain_role) CONTAINS 'prototyping' RETURN c.company AS company, collect(DISTINCT r.ev_supply_chain_role) AS roles LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "",
+    "finished_at": "2026-07-09T19:26:52.514632+00:00",
+    "duration_seconds": 48.496
+  },
+  {
+    "question_id": 40,
+    "question": "Which Georgia suppliers currently serving traditional OEMs are also linked to EV-native OEMs, showing dual-platform supply capability?",
+    "mode": "text2cypher-only",
+    "status": "error",
+    "started_at": "2026-07-09T19:26:52.514846+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "answer": "",
+    "error": {
+      "type": "Text2CypherRetrievalError",
+      "message": "Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^",
+      "traceback": "neo4j.exceptions.GqlError: {gql_status: 42N45} {gql_status_description: error: syntax error or access rule violation - unexpected end of input. Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {message: 42N45: Unexpected end of input, expected 'CYPHER', 'EXPLAIN', 'PROFILE' or a query.} {diagnostic_record: {'_classification': 'CLIENT_ERROR', '_position': {'offset': 0, 'column': 1, 'line': 1}, 'OPERATION': '', 'OPERATION_CODE': '0', 'CURRENT_SCHEMA': '/'}} {raw_classification: CLIENT_ERROR}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 217, in get_search_results\n    records, _, _ = self.driver.execute_query(\n                    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n        query_=t2c_query,\n        ^^^^^^^^^^^^^^^^^\n        database_=self.neo4j_database,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n        routing_=neo4j.RoutingControl.READ,\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 946, in execute_query\n    return session._run_transaction(\n           ~~~~~~~~~~~~~~~~~~~~~~~~^\n        access_mode,\n        ^^^^^^^^^^^^\n    ...<3 lines>...\n        {},\n        ^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/session.py\", line 543, in _run_transaction\n    result = transaction_function(tx, *args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/driver.py\", line 1298, in _work\n    res = tx.run(query, parameters)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/transaction.py\", line 201, in run\n    result._tx_ready_run(query, parameters)\n    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 178, in _tx_ready_run\n    self._run(query, parameters, None, None, None, None, None, None)\n    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 237, in _run\n    self._attach()\n    ~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/work/result.py\", line 439, in _attach\n    self._connection.fetch_message()\n    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 193, in inner\n    func(*args, **kwargs)\n    ~~~~^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt.py\", line 867, in fetch_message\n    res = self._process_message(tag, fields)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_bolt6.py\", line 548, in _process_message\n    response.on_failure(summary_metadata or {})\n    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j/_sync/io/_common.py\", line 263, in on_failure\n    raise self._hydrate_error(metadata)\nneo4j.exceptions.CypherSyntaxError: {neo4j_code: Neo.ClientError.Statement.SyntaxError} {message: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^} {gql_status: 42001} {gql_status_description: error: syntax error or access rule violation - invalid syntax}\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/home/sm11926/neo4j-graphrag-python/examples/question_answering/company_graphrag_tools.py\", line 786, in run_batch\n    result = rag.search(question, retriever_config={}, return_context=True)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/generation/graphrag.py\", line 151, in search\n    retriever_result: RetrieverResult = self.retriever.search(\n                                        ~~~~~~~~~~~~~~~~~~~~~^\n        query_text=query, **validated_data.retriever_config\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n    )\n    ^\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/base.py\", line 154, in search\n    raw_result = self.get_search_results(*args, **kwargs)\n  File \"/home/sm11926/anaconda3/lib/python3.13/site-packages/neo4j_graphrag/retrievers/text2cypher.py\", line 223, in get_search_results\n    raise Text2CypherRetrievalError(\n        f\"Failed to get search result: {e.message}\"\n    ) from e\nneo4j_graphrag.exceptions.Text2CypherRetrievalError: Failed to get search result: Unexpected end of input: expected CYPHER, EXPLAIN, PROFILE or Query (line 1, column 1 (offset: 0))\n\"\"\n ^\n"
+    },
+    "finished_at": "2026-07-09T19:27:30.669488+00:00",
+    "duration_seconds": 38.155
+  },
+  {
+    "question_id": 41,
+    "question": "For an international battery materials company seeking a Georgia location, which areas have existing chemical manufacturing infrastructure?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:27:30.669878+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_FACILITY_TYPE]->(f:FacilityType) WHERE f.primary_facility_type = 'Chemical Manufacturing' MATCH (c)-[:LOCATED_IN]->(l:Location) WITH split(l.location, ', ')[-1] AS county, count(DISTINCT c.company) AS num_companies ORDER BY num_companies DESC RETURN county, num_companies LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No matching records were found in the retrieved context.",
+    "finished_at": "2026-07-09T19:27:56.942015+00:00",
+    "duration_seconds": 26.272
+  },
+  {
+    "question_id": 42,
+    "question": "Which Georgia areas have R&D facility types in the automotive sector, suggesting innovation infrastructure suitable for EV technology development centers?",
+    "mode": "text2cypher-only",
+    "status": "ok",
+    "started_at": "2026-07-09T19:27:56.942342+00:00",
+    "retriever_config": {
+      "top_k": 50
+    },
+    "tool_used": "Text2CypherRetriever",
+    "retriever_metadata": {
+      "cypher": "MATCH (c:Company)-[:HAS_FACILITY_TYPE]->(f:FacilityType)-[:HAS_FACILITY_TYPE]->(c) WHERE f.primary_facility_type = 'R&D' OPTIONAL MATCH (c)-[:BELONGS_TO_INDUSTRY]->(i:IndustryGroup) WHERE toLower(i.industry_group) CONTAINS 'automotive' MATCH (c)-[:LOCATED_IN]->(l:Location) RETURN DISTINCT l.location AS location LIMIT 50",
+      "__retriever": "Text2CypherRetriever"
+    },
+    "retrieved_context": [],
+    "retrieved_item_count": 0,
+    "answer": "No records were found in the provided context that specify Georgia areas with R&D facility types in the automotive sector. The retrieved records section is empty, so no answer can be derived from it.",
+    "finished_at": "2026-07-09T19:28:37.019105+00:00",
+    "duration_seconds": 40.077
+  }
+]
